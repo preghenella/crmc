@@ -24,3 +24,6 @@ INSTALL (TARGETS Epos
 target_link_libraries(Epos CrmcBasic)
 ENDIF (__CRMCSTATIC__)
 
+if(${CMAKE_SYSTEM} MATCHES Darwin)
+     set_target_properties(CrmcBasic PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+endif(${CMAKE_SYSTEM} MATCHES Darwin)
